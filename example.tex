@@ -2,14 +2,22 @@
 
 \usepackage[nottoc]{tocbibind}
 \usepackage[utf8]{inputenc}
+\usepackage{subfiles}
 
 \title{Example main title}
 \subtitle{Example subtitle}
 \author{John Student, Lucy Student}
+\mainfield{Datateknik}
+\supervisor{Mr. Foo}
+\place{Jönköping}
+\stateYear{2020}
+\stateMonth{February}
 
 \begin{document}
 
 \maketitle
+
+\subfile{secondPage.tex}
 
 \tableofcontents
 

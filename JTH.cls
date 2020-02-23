@@ -2,7 +2,7 @@
 \ProvidesClass{JTH}[2017/10/03 JU-JTH LaTeX class]
 
 % Build on existing report class
-\LoadClass[11pt, a4paper]{report}
+\LoadClass[11pt, a4paper]{article}
 
 % --- Package loading starts ---
 % Core LaTeX features
@@ -29,6 +29,13 @@
 \newcommand*{\subtitle}[1]{\gdef\@subtitle{#1}}
 \newcommand*{\@subtitle}{}%
 
+% Define a macro for main field, author, supervisor and place, year and month 
+\newcommand*{\mainfield}[1]{\gdef\@mainfield{#1}}
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
+\newcommand*{\place}[1]{\gdef\@place{#1}}
+\newcommand*{\stateYear}[1]{\gdef\@stateYear{#1}}
+\newcommand*{\stateMonth}[1]{\gdef\@stateMonth{#1}}
+
 % Various color, font, and indentation
 \definecolor{jublue}{RGB}{0.0, 56, 101}
 \allsectionsfont{\sffamily}
@@ -48,18 +55,28 @@
 	% Reconfigure front page colors, geometries, etc.
 	\thispagestyle{empty}
 	\newgeometry{left=2cm,top=2cm, right=7cm}
-	\newpagecolor{jublue}
-	\color{white}
+	%\newpagecolor{jublue}
+	\color{black}
 	\sffamily
 
 	% Logo, nice spacing, title, subtitle, author..
-	\includegraphics[width=70mm]{JTH-logo.pdf}\par
+	\includegraphics[width=70mm]{juLogo.png}\par
 	\vspace{4 cm}
 	\setstretch{1.1}
 	\Huge\textbf{\@title}\par
 	\huge \@subtitle\par
-	\vspace{1 cm}
-	\Large\textbf{\@author}
+
+	\vspace*{\fill}
+	\scriptsize
+	\textbf{HUVUDOMRÅDE: }\textit{{\@mainfield}}
+	\newline
+	FÖRFATTARE: \textit{\@author}
+	\newline
+	HANDLEDARE: \textit{\@supervisor}
+	\newline
+	\MakeUppercase{\@place} \@stateYear \ \@stateMonth
+	
+	
 
 	% Restore default settings for the rest of the document
 	\color{black}
